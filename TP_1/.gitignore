@@ -1,0 +1,14 @@
+# Ignorar ejecutables
+*.exe
+
+# Ignorar archivos temporales
+*.o
+*.obj
+*.log
+*.tmp
+*.bak
+*~
+
+# Ignorar carpetas ocultas de sistema
+.DS_Store
+Thumbs.db
