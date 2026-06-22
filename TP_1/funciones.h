@@ -10,6 +10,7 @@
 #define SUCURSAL_1 0 
 #define SUCURSAL_2 1 
 #define SUCURSAL_3 2 
+#define TOTAL 4
 
 // estructuras
 typedef struct { 
@@ -21,8 +22,6 @@ typedef struct {
 // funciones 
 void cargar_articulos(articulos_t *articulos, int *cantidad_articulos);
 void inicializar_articulos(articulos_t *articulos, int cant_max);
-int buscar_o_agregar_articulo(articulos_t articulos[], int* cantidad_actual, char descripcion[]);
-void cargar_cantidad(articulos_t articulos[], int index, int sucursal);
 void calcular_total(articulos_t *articulos, int cant_max);
 void imprimir_tabla(articulos_t *articulos, int cant_max);
 void ordenar_por_total(articulos_t *articulos, int cant_max);
