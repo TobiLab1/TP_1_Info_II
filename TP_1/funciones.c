@@ -2,7 +2,7 @@
 #include <string.h>
 #include "funciones.h"
 
-void cargar_articulos(articulos_t *articulos, int *cantidad_articulos) { // Funcion nueva
+void cargar_articulos(articulos_t *articulos, int *cantidad_articulos) {
     int opcion = 1;
     char descripcion[90];
     int index, sucursal;
@@ -28,8 +28,8 @@ void cargar_articulos(articulos_t *articulos, int *cantidad_articulos) { // Func
     }
 }
 
-void inicializar_articulos(articulos_t articulos[], int n) {
-    for (int i = 0; i < n; i++) {
+void inicializar_articulos(articulos_t *articulos, int cant_max) {
+    for (int i = 0; i < cant_max; i++) {
         articulos[i].descripcion[0] = '\0';
         for (int j = 0; j < 3; j++) {
             articulos[i].cantidad_sucursal[j] = 0;
@@ -57,8 +57,8 @@ void cargar_cantidad(articulos_t *articulos, int index, int sucursal) {
     (*(articulos + index)).cantidad_sucursal[sucursal - 1] += cantidad; //Arreglado con puntero
 }
 
-void calcular_total(articulos_t articulos[], int cantidad) {
-    for (int i = 0; i < cantidad; i++) {
+void calcular_total(articulos_t *articulos, int cant_max) {
+    for (int i = 0; i < cant_max; i++) {
         articulos[i].total = 0;
         for (int j = 0; j < 3; j++) {
             articulos[i].total += articulos[i].cantidad_sucursal[j];
@@ -66,9 +66,9 @@ void calcular_total(articulos_t articulos[], int cantidad) {
     }
 }
 
-void imprimir_tabla(articulos_t articulos[], int cantidad) {
+void imprimir_tabla(articulos_t *articulos, int cant_max) {
     printf("Articulo\tSucursal 1\tSucursal 2\tSucursal 3\tTotal\n");
-    for (int i = 0; i < cantidad; i++) {
+    for (int i = 0; i < cant_max; i++) {
         printf("%s\t\t%d\t\t%d\t\t%d\t\t%d\n",
                articulos[i].descripcion,
                articulos[i].cantidad_sucursal[0],
@@ -78,10 +78,10 @@ void imprimir_tabla(articulos_t articulos[], int cantidad) {
     }
 }
 
-void ordenar_por_total(articulos_t articulos[], int cantidad) {
+void ordenar_por_total(articulos_t *articulos, int cant_max) {
     articulos_t temp;
-    for (int i = 0; i < cantidad - 1; i++) {
-        for (int j = 0; j < cantidad - i - 1; j++) {
+    for (int i = 0; i < cant_max - 1; i++) {
+        for (int j = 0; j < cant_max - i - 1; j++) {
             if (articulos[j].total < articulos[j + 1].total) {
                 temp = articulos[j];
                 articulos[j] = articulos[j + 1];

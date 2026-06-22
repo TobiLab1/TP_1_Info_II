@@ -19,12 +19,12 @@ typedef struct {
 } articulos_t;
 
 // funciones 
-void cargar_articulos(articulos_t *articulos, int *cantidad_articulos); // Funcion nueva
-void inicializar_articulos(articulos_t articulos[], int n);
+void cargar_articulos(articulos_t *articulos, int *cantidad_articulos);
+void inicializar_articulos(articulos_t *articulos, int cant_max);
 int buscar_o_agregar_articulo(articulos_t articulos[], int* cantidad_actual, char descripcion[]);
 void cargar_cantidad(articulos_t articulos[], int index, int sucursal);
-void calcular_total(articulos_t articulos[], int cantidad);
-void imprimir_tabla(articulos_t articulos[], int cantidad);
-void ordenar_por_total(articulos_t articulos[], int cantidad);
+void calcular_total(articulos_t *articulos, int cant_max);
+void imprimir_tabla(articulos_t *articulos, int cant_max);
+void ordenar_por_total(articulos_t *articulos, int cant_max);
 
 #endif
